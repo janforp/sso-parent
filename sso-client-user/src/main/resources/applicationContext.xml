@@ -28,7 +28,7 @@
 
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/sso-client-user/*"/>
+			<mvc:mapping path="/"/>
 			<bean class="com.janita.sso.core.interceptor.MyInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
