@@ -72,14 +72,11 @@ public class CacheConfig {
 
     @Bean
     public JedisPool jedisPool() {
-        JedisPool pool = new JedisPool(jedisPoolConfig(), hostName, port, timeout);
-        return pool;
+        return new JedisPool(jedisPoolConfig(), hostName, port, timeout);
     }
 
     /**
      * 构造jedis连接工厂
-     *
-     * @return
      */
     @Bean
     public JedisConnectionFactory jedisConnectionFactory() {

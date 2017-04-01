@@ -1,5 +1,6 @@
 package com.janita.cache.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.janita.cache.service.RedisCacheOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
@@ -23,12 +24,21 @@ import java.util.concurrent.TimeUnit;
  */
 @SuppressWarnings("unchecked")
 public class RedisCacheTemplate implements RedisCacheOptions {
+
+    /**
+     * 默认的keySpace
+     * @see RedisCommonServiceImpl#save(String, JSONObject)
+     */
     private static final String DEFAULT_KEY_SPACE = "default_cache";
     private RedisCache redisCache;
     private RedisTemplate redisTemplate;
     @Autowired
     private RedisCacheManager redisCacheManager;
 
+    /**
+     * @see com.janita.cache.configuration.CacheConfig
+     * 在这里redis的各个bean都注入了
+     */
     @PostConstruct
     public void init() {
         redisCache = (RedisCache) redisCacheManager.getCache(DEFAULT_KEY_SPACE);

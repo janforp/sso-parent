@@ -26,8 +26,7 @@ public class JedisCacheTool {
 	/**
 	 * 批量插入
 	 * 
-	 * @param keys
-	 * @param values
+	 * @param cacheObjects
 	 */
 	public void putBatch(List<CacheObject> cacheObjects) {
 		Jedis jedis = jedisPool.getResource();
@@ -99,8 +98,8 @@ public class JedisCacheTool {
 	/**
 	 * 单个插入
 	 * 
-	 * @param keys
-	 * @param values
+	 * @param key
+	 * @param value
 	 */
 	public void put(Object key, Object value) {
 		Jedis jedis = jedisPool.getResource();
