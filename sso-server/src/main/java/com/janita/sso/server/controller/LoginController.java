@@ -20,8 +20,10 @@ public class LoginController {
 	private Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping(value="login", method={RequestMethod.GET, RequestMethod.POST})
-	public String login(HttpSession session, Model model, @RequestParam(value="name", required=false) String name, @RequestParam(value="password", required=false) String password) {
-		if(name == null && password == null) return "login";
+	public String login(HttpSession session, Model model,
+						@RequestParam(value="name", required=false) String name, @RequestParam(value="password", required=false) String password) {
+		if(name == null && password == null)
+			return "login";
 		if("admin".equals(name) && "admin".equals(password)) {
 			String token = UUID.randomUUID().toString();
 			session.setAttribute("login", true);
