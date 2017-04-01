@@ -10,7 +10,8 @@
         <module>oss-cache</module>
         <module>sso-core</module>
 		<module>sso-server</module>
-	</modules>
+        <module>sso-client-user</module>
+    </modules>
     <packaging>pom</packaging>
 	<name>sso-parent</name>
 	<description>OSS单点登录</description>
